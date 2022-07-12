@@ -10,15 +10,18 @@
 <body>
     <div id="app">
         <div id="header">
-            <strong>{{titleEnglish}}</strong>
-            <strong>({{titleJapanese}})</strong>
+            <div id="header-left-side">
+                <strong>{{title}}</strong>
+                <strong class="secondary-title">{{titleEnglish}}</strong>
+            </div>
+            <strong class="secondary-title">{{titleJapanese}}</strong>
         </div>
         <div id="content">
             <div id="left-side">
                 <a :href="url">
                     <img :src="image" :alt="`${titleEnglish} Promotional Image`">
                 </a>
-                <button>Get A New Random Anime</button>
+                <button v-on:click="getData()">Get A New Random Anime</button>
             </div>
             <div id="top">    
                 <div id="info-div">

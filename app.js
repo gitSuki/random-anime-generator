@@ -3,7 +3,8 @@ const app = Vue.createApp({
         return {
             id: '50265',
             url: 'https://myanimelist.net/anime/50265/Spy_x_Family',
-            titleEnglish: 'Spy x Family',
+            title: 'Spy x Family',
+            titleEnglish : '',
             titleJapanese: 'SPY×FAMILY',
             image: 'https://cdn.myanimelist.net/images/anime/1441/122795.jpg',
             score: 8.85,
@@ -15,7 +16,7 @@ Unfortunately for Loid, even a man of his talents has trouble playing the figure
             episodes: '12',
             type: 'TV',
             season: 'Spring',
-            year: '2022',
+            year: '2022'
         }
     }
 })
