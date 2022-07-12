@@ -1,12 +1,12 @@
 <template>
-  <Header :title="title" :titleEnglish="titleEnglish" :titleJapanese="titleJapanese"/>
+  <Header :title="anime.title" :titleEnglish="anime.titleEnglish" :titleJapanese="anime.titleJapanese"/>
   <div id="content">
     <div id="left-side">
-      <Image :title="title" :animeURL="animeURL" :imageURL="imageURL" />
+      <Image :title="anime.title" :animeURL="anime.url" :imageURL="anime.images.jpg.image_url" />
       <Button/>
     </div>
     <div id="top">
-      <Info :season="season" :year="year" :episodes="episodes" :type="type" :score="score" :synopsis="synopsis"/>
+      <Info :season="anime.season" :year="anime.year" :episodes="anime.episodes" :type="anime.type" :score="anime.score" :synopsis="anime.synopsis"/>
     </div>
   </div>
 </template>
@@ -17,7 +17,30 @@ import Image from './components/Image.vue'
 import Button from './components/Button.vue'
 import Info from './components/Info.vue'
 import animeCache from './anime_cache.json'
+
 const { sfw: idList } = animeCache;
+const anime = {
+  id: '50265',
+  url: 'https://myanimelist.net/anime/50265/Spy_x_Family',
+  title: 'Spy x Family',
+  titleEnglish : '',
+  titleJapanese: 'SPY×FAMILY',
+  images: {
+    jpg: {
+      image_url: 'https://cdn.myanimelist.net/images/anime/1441/122795.jpg'
+    },
+  },
+  score: 8.85,
+  episodes: 12,
+  type: 'TV',
+  season: 'Spring',
+  year: 2022,
+  synopsis: `Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise "Twilight" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war.
+
+In the bustling Ostanian city of Berlint, Twilight dons the alias of "Loid Forger," an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion.
+
+Unfortunately for Loid, even a man of his talents has trouble playing the figure of a loving father and husband. And just like Loid is hiding his true identity, Yor—who is an underground assassin known as "Thorn Princess"—and Anya—an esper who can read people's minds—have no plans to disclose their own secrets either. Although this picture-perfect family is founded on deception, the Forgers gradually come to understand that the love they share for one another trumps all else.`
+}
 
 export default {
   name: 'App',
@@ -29,37 +52,10 @@ export default {
   },
   data() {
     return {
-      title: title,
-      titleEnglish: titleEnglish,
-      titleJapanese: titleJapanese,
-      animeURL: animeURL,
-      imageURL: imageURL,
-      score: score,
-      episodes: episodes,
-      type: type,
-      season: season,
-      year: year,
-      synopsis: synopsis
+      anime: anime
     }
   }
 }
-
-const ID = 50265
-const animeURL = 'https://myanimelist.net/anime/50265/Spy_x_Family'
-const title = 'Spy x Family'
-const titleEnglish = ''
-const titleJapanese = 'SPY×FAMILY'
-const imageURL = 'https://cdn.myanimelist.net/images/anime/1441/122795.jpg'
-const score = 8.85
-const episodes = 12
-const type = 'TV'
-const season = 'spring'
-const year = 2022
-const synopsis = `Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise "Twilight" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war.
-
-In the bustling Ostanian city of Berlint, Twilight dons the alias of "Loid Forger," an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion.
-
-Unfortunately for Loid, even a man of his talents has trouble playing the figure of a loving father and husband. And just like Loid is hiding his true identity, Yor—who is an underground assassin known as "Thorn Princess"—and Anya—an esper who can read people's minds—have no plans to disclose their own secrets either. Although this picture-perfect family is founded on deception, the Forgers gradually come to understand that the love they share for one another trumps all else.`
 </script>
 
 <style>
