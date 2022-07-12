@@ -51,7 +51,8 @@ table {
 }
 
 #app {
-    width: 720px;
+    width: 500px;
+    height: 400px;
 }
 
 #header {
@@ -87,10 +88,10 @@ button {
 }
 
 #top {
-    padding: 0.2    5rem;
+    padding: 0.2rem;
 }
 
-#info-bar {
+#info-div {
     display: grid;
     grid-template-columns: auto 70px;
     padding-top: 10px;
@@ -128,7 +129,10 @@ button {
 }
 
 #synopsis {
-    margin-top: 1rem;
+    margin-top: 1.1rem;
     font-size: 0.9rem;
     color: #323232;;
+    height: 275px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
