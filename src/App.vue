@@ -1,5 +1,9 @@
 <template>
   <Header title="Spy x Family" :titleEnglish="null" titleJapanese="SPY×FAMILY"/>
+  <div id="content">
+    <div id="left-side">
+    </div>
+  </div>
   <!-- 
   <div id="content">
       <div id="left-side">
@@ -26,11 +30,13 @@
 
 <script>
 import Header from './components/Header.vue'
+import Image from './components/Image.vue'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Image
   }
 }
 </script>
