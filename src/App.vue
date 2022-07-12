@@ -1,11 +1,6 @@
 <template>
-  <div id="header">
-      <div id="header-left-side">
-          <strong>{{title}}</strong>
-          <strong class="secondary-title">{{titleEnglish}}</strong>
-      </div>
-      <strong class="secondary-title">{{titleJapanese}}</strong>
-  </div>
+  <Header title="Spy x Family" :titleEnglish="null" titleJapanese="SPY×FAMILY"/>
+  <!-- 
   <div id="content">
       <div id="left-side">
           <a :href="url">
@@ -26,14 +21,16 @@
           </div>
           <p id="synopsis">{{synopsis}}</p>
       </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
+import Header from './components/Header.vue'
+
 export default {
   name: 'App',
   components: {
-    
+    Header
   }
 }
 </script>
@@ -92,104 +89,104 @@ table {
 }
 
 #app {
-    width: 500px;
-    height: 400px;
+  width: 500px;
+  height: 400px;
 }
 
 #header {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5em;
-    background-color: #e1e7f5;
-    font-size: 1.1rem;
-    padding: 0.5em;
-    border-bottom: 1px solid #1d439b;;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  background-color: #e1e7f5;
+  font-size: 1.1rem;
+  padding: 0.5em;
+  border-bottom: 1px solid #1d439b;;
 }
 
 #header-left-side {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .secondary-title {
-    margin-top: 2px;
-    color: grey;
-    font-size: 1rem;
+  margin-top: 2px;
+  color: grey;
+  font-size: 1rem;
 }
 
 #content {
-    margin-top: 0.25rem;
-    display: flex;
+  margin-top: 0.25rem;
+  display: flex;
 }
 
 #left-side {
-    width: 225px;
-    padding: 3px;
+  width: 225px;
+  padding: 3px;
 }
 
 button {
-    display: block;
-    border: none;
-    background-color: #4f74c8;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 14px;
-    padding: 6px;
-    width: 100%;
-    text-decoration: none;
+  display: block;
+  border: none;
+  background-color: #4f74c8;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px;
+  width: 100%;
+  text-decoration: none;
 }
 
 #top {
-    padding: 0.2rem;
+  padding: 0.2rem;
 }
 
 #info-div {
-    display: grid;
-    grid-template-columns: auto 70px;
-    padding-top: 10px;
+  display: grid;
+  grid-template-columns: auto 70px;
+  padding-top: 10px;
 }
 
 #info-left-side {
-    display: flex;
-    gap: 9px;
-    flex-direction: column;
+  display: flex;
+  gap: 9px;
+  flex-direction: column;
 }
 
 #air-data {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 #air-data::first-letter {
-    text-transform:capitalize;
+  text-transform:capitalize;
 }
 
 #episodes {
-    color: #323232;;
+  color: #323232;;
 }
 
 #score {
-    color: #323232;;
-    padding-top: 0.75rem;
-    text-align: right;
-    font-size: 1.2rem;
+  color: #323232;;
+  padding-top: 0.75rem;
+  text-align: right;
+  font-size: 1.2rem;
 }
 
 #score-icon {
-    max-width: 20px;
-    vertical-align: middle;
+  max-width: 20px;
+  vertical-align: middle;
 }
 
 #score-data {
-    padding-top: 1px;
-    vertical-align: middle;
+  padding-top: 1px;
+  vertical-align: middle;
 }
 
 #synopsis {
-    margin-top: 1.1rem;
-    font-size: 0.9rem;
-    color: #323232;;
-    height: 275px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  margin-top: 1.1rem;
+  font-size: 0.9rem;
+  color: #323232;;
+  height: 275px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
