@@ -51,18 +51,20 @@ table {
 }
 
 #app {
-    width: 1060px;
+    width: 720px;
 }
 
 #header {
     display: flex;
     gap: 0.5em;
     background-color: #e1e7f5;
-    font-size: 16px;
+    font-size: 1.1rem;
     padding: 0.5em;
+    border-bottom: 1px solid #1d439b;;
 }
 
 #content {
+    margin-top: 0.25rem;
     display: flex;
 }
 
@@ -84,13 +86,49 @@ button {
 
 }
 
-#info-bar {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
+#top {
+    padding: 0.2    5rem;
 }
 
-.info-data {
-    margin: 4px 0 2px;
-    padding: 2px 0;
+#info-bar {
+    display: grid;
+    grid-template-columns: auto 70px;
+    padding-top: 10px;
+}
+
+#info-left-side {
+    display: flex;
+    gap: 9px;
+    flex-direction: column;
+}
+
+#air-data {
+    font-size: 1.4rem;
+}
+
+#episodes {
+    color: #323232;;
+}
+
+#score {
+    color: #323232;;
+    padding-top: 0.75rem;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+#score-icon {
+    max-width: 20px;
+    vertical-align: middle;
+}
+
+#score-data {
+    padding-top: 1px;
+    vertical-align: middle;
+}
+
+#synopsis {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #323232;;
 }
