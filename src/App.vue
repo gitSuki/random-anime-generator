@@ -5,35 +5,25 @@
       <Image :title="title" :animeURL="animeURL" :imageURL="imageURL" />
       <Button/>
     </div>
+    <div id="top">
+      <Info :season="season" :year="year" :episodes="episodes" :type="type" :score="score" :synopsis="synopsis"/>
+    </div>
   </div>
-  <!-- 
-      <div id="top">    
-          <div id="info-div">
-              <div id="info-left-side">
-                  <span id="air-data">{{season}} {{year}}</span>
-                  <span id="episodes">{{episodes}} episodes - {{type}}</span>
-              </div>
-              <div id="score">
-                  <img id="score-icon" src="./assets/star.svg" alt="star">
-                  <span id="score-data">{{score}}</span>
-              </div>
-          </div>
-          <p id="synopsis">{{synopsis}}</p>
-      </div>
-  </div> -->
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Image from './components/Image.vue'
 import Button from './components/Button.vue'
+import Info from './components/Info.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
     Image,
-    Button
+    Button,
+    Info
   },
   data() {
     return {
@@ -41,7 +31,13 @@ export default {
       titleEnglish: titleEnglish,
       titleJapanese: titleJapanese,
       animeURL: animeURL,
-      imageURL: imageURL
+      imageURL: imageURL,
+      score: score,
+      episodes: episodes,
+      type: type,
+      season: season,
+      year: year,
+      synopsis: synopsis
     }
   }
 }
@@ -53,15 +49,15 @@ const titleEnglish = ''
 const titleJapanese = 'SPY×FAMILY'
 const imageURL = 'https://cdn.myanimelist.net/images/anime/1441/122795.jpg'
 const score = 8.85
+const episodes = 12
+const type = 'TV'
+const season = 'spring'
+const year = 2022
 const synopsis = `Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise "Twilight" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war.
 
 In the bustling Ostanian city of Berlint, Twilight dons the alias of "Loid Forger," an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion.
 
 Unfortunately for Loid, even a man of his talents has trouble playing the figure of a loving father and husband. And just like Loid is hiding his true identity, Yor—who is an underground assassin known as "Thorn Princess"—and Anya—an esper who can read people's minds—have no plans to disclose their own secrets either. Although this picture-perfect family is founded on deception, the Forgers gradually come to understand that the love they share for one another trumps all else.`
-const episodes = 12
-const type = 'TV'
-const season = 'spring'
-const year = 2022
 </script>
 
 <style>
@@ -120,6 +116,8 @@ table {
 #app {
   width: 500px;
   height: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #header {
@@ -173,6 +171,7 @@ button {
   display: grid;
   grid-template-columns: auto 70px;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #info-left-side {
