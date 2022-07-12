@@ -1,19 +1,13 @@
-# random-anime
+# random-anime-generator
+A small Vue webapp that randomly selects from the MyAnimeList ID cache, utilizing the jikanv4 API to fetch that Anime's data and allows the user to click the link directly to MyAnimeList.net  
 
-## Project setup
-```
-npm install
-```
+## Technologies
+* Vue & Vue CLI (JavaScript/HTML/CSS)
+* Node.js
+* Babel
+* [jikanv4](https://github.com/jikan-me) (MyAnimeList unnoficial REST API)
+* [MAL ID Cache](https://github.com/seanbreckenridge/mal-id-cache)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Preview
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](https://github.com/gitSuki/public/blob/main/VirtualBoxVM_6NKTojAGGq.gif)
