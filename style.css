@@ -119,6 +119,10 @@ button {
     font-size: 1.4rem;
 }
 
+#air-data::first-letter {
+    text-transform:capitalize;
+}
+
 #episodes {
     color: #323232;;
 }
