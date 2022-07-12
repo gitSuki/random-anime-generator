@@ -1,6 +1,6 @@
 <template>
-  <a :href="animeUrl">
-    <img :src="imageUrl" :alt="`${title} promo image`">
+  <a :href="animeURL">
+    <img :src="imageURL" :alt="`${title} promo image`">
   </a>
 </template>
 
@@ -8,8 +8,8 @@
 export default {
   name: 'Image',
   props: {
-    animeUrl: String,
-    imageUrl: String ,
+    animeURL: String,
+    imageURL: String ,
     title: String
   }
 }
