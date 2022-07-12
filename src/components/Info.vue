@@ -29,7 +29,7 @@ export default {
       default: "Unknown type"
     },
     score: {
-      type: Number,
+      type: [Number, String],
       default: "N/A"
     },
     synopsis: String

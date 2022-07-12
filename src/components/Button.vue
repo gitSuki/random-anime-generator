@@ -6,11 +6,9 @@
 export default {
   name: 'Button',
   methods: {
-    onClick: onClick
-  }
-}
-
-function onClick(){
-  console.log("Hello")
+    onClick() {
+      this.$emit('generate-new-anime')
+    }
+  },
 }
 </script>

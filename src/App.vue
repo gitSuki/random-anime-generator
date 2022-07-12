@@ -1,9 +1,9 @@
 <template>
-  <Header :title="anime.title" :titleEnglish="anime.titleEnglish" :titleJapanese="anime.titleJapanese"/>
+  <Header :title="anime.title" :titleEnglish="anime.title_english" :titleJapanese="anime.title_japanese"/>
   <div id="content">
     <div id="left-side">
       <Image :title="anime.title" :animeURL="anime.url" :imageURL="anime.images.jpg.image_url" />
-      <Button/>
+      <Button @generate-new-anime="generateNewAnime()"/>
     </div>
     <div id="top">
       <Info :season="anime.season" :year="anime.year" :episodes="anime.episodes" :type="anime.type" :score="anime.score" :synopsis="anime.synopsis"/>
@@ -23,8 +23,8 @@ const anime = {
   id: 50265,
   url: 'https://myanimelist.net/anime/50265/Spy_x_Family',
   title: 'Spy x Family',
-  titleEnglish : '',
-  titleJapanese: 'SPY×FAMILY',
+  title_english : '',
+  title_japanese: 'SPY×FAMILY',
   images: {
     jpg: {
       image_url: 'https://cdn.myanimelist.net/images/anime/1441/122795.jpg'
@@ -33,7 +33,7 @@ const anime = {
   score: 8.85,
   episodes: 12,
   type: 'TV',
-  season: 'Spring',
+  season: 'spring',
   year: 2022,
   synopsis: `Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise "Twilight" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war.
 
@@ -52,18 +52,6 @@ async function fetchAnime(id){
   return data
 }
 
-function transferData(newAnime){
-  for (const property in anime){
-    anime[property] = newAnime[property]
-  }
-}
-
-async function main(){
-  const randomKey = getRandom();
-  const newAnime = await fetchAnime(idList[randomKey])
-  transferData(newAnime)
-}
-
 export default {
   name: 'App',
   components: {
@@ -75,6 +63,37 @@ export default {
   data() {
     return {
       anime: anime
+    }
+  },
+  methods: {
+    async generateNewAnime(){
+      const randomKey = getRandom();
+      const newAnime = await fetchAnime(idList[randomKey])
+      for (const key in this.anime){
+        this.anime[key] = newAnime[key]
+      }
+      if (this.anime.year == null){
+        // takes the year from aired string
+        this.anime.year = parseInt(newAnime.aired.from.substring(0, 4));
+      }
+      if (this.anime.season == null){
+        const month = newAnime.aired.from.substring(5, 7)
+        if (month > 9){
+          this.anime.season = 'fall'
+        }
+        else if (month > 6){
+          this.anime.season = 'summer'
+        }
+        else if (month > 3){
+          this.anime.season = 'spring'
+        }
+        else {
+          this.anime.season = 'winter'
+        }
+      }
+      if (this.anime.score == null){
+        this.anime.score = "N/A"
+      }
     }
   }
 }
@@ -135,7 +154,7 @@ table {
 
 #app {
   width: 500px;
-  height: 400px;
+  height: 500px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
