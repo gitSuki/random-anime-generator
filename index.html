@@ -9,12 +9,26 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{titleEnglish}} ({{titleJapanese}})</h1>
-        <img :src="image" :alt="`${titleEnglish} Promotional Image`">
-        <div>{{score}} {{ranked}} {{popularity}} {{members}}</div>
-        <p style="white-space: pre;">{{synopsis}}</p>
-        <div>{{episodes}} {{season}} {{year}}</div>
-        <a :href="url">Link</a>
+        <div id="header">
+            <strong>{{titleEnglish}}</strong>
+            <strong>({{titleJapanese}})</strong>
+        </div>
+        <div id="content">
+            <div id="left-side">
+                <a :href="url">
+                    <img :src="image" :alt="`${titleEnglish} Promotional Image`">
+                </a>
+                <button>Get A New Random Anime</button>
+                <div id="info-bar">
+                    <span class="info-data">Episodes: {{episodes}}</span>
+                    <span class="info-data">Premiered: {{season}} {{year}}</span>
+                </div>
+            </div>
+            <div id="top">    
+                <div>{{score}} {{ranked}} {{popularity}} {{members}}</div>
+                <p>{{synopsis}}</p>
+            </div>
+        </div>
     </div>
     <script src="https://unpkg.com/vue@3    "></script>
     <script src='app.js'></script>
