@@ -20,7 +20,7 @@ import animeCache from './anime_cache.json'
 
 const { sfw: idList } = animeCache;
 const anime = {
-  id: '50265',
+  id: 50265,
   url: 'https://myanimelist.net/anime/50265/Spy_x_Family',
   title: 'Spy x Family',
   titleEnglish : '',
@@ -40,6 +40,28 @@ const anime = {
 In the bustling Ostanian city of Berlint, Twilight dons the alias of "Loid Forger," an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion.
 
 Unfortunately for Loid, even a man of his talents has trouble playing the figure of a loving father and husband. And just like Loid is hiding his true identity, Yor—who is an underground assassin known as "Thorn Princess"—and Anya—an esper who can read people's minds—have no plans to disclose their own secrets either. Although this picture-perfect family is founded on deception, the Forgers gradually come to understand that the love they share for one another trumps all else.`
+}
+
+function getRandom(){
+  return Math.floor(Math.random() * idList.length);
+}
+
+async function fetchAnime(id){
+  const results = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
+  const { data } = await results.json()
+  return data
+}
+
+function transferData(newAnime){
+  for (const property in anime){
+    anime[property] = newAnime[property]
+  }
+}
+
+async function main(){
+  const randomKey = getRandom();
+  const newAnime = await fetchAnime(idList[randomKey])
+  transferData(newAnime)
 }
 
 export default {
