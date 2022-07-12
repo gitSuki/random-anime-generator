@@ -19334,12 +19334,12 @@ Unfortunately for Loid, even a man of his talents has trouble playing the figure
             this.titleEnglish = data.title_english
             this.titleJapanese = data.title_japanese
             this.image = data.images.jpg.image_url
-            this.score =  data.score
+            this.score =  (data.score === null) ? "N/A" : data.score
             this.synopsis = data.synopsis
             this.episodes = data.episodes
             this.type = data.type
             this.season = data.season
-            this.year = data.year
+            this.year = (data.year === null) ? data.aired.from.substring(0, 4) : data.year
         }
     }
 })
