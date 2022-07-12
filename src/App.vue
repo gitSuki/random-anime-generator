@@ -16,6 +16,8 @@ import Header from './components/Header.vue'
 import Image from './components/Image.vue'
 import Button from './components/Button.vue'
 import Info from './components/Info.vue'
+import animeCache from './anime_cache.json'
+const { sfw: idList } = animeCache;
 
 export default {
   name: 'App',
