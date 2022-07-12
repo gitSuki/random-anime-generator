@@ -10,6 +10,11 @@
 <body>
     <div id="app">
         <h1>{{titleEnglish}} ({{titleJapanese}})</h1>
+        <img :src="image" :alt="`${titleEnglish} Promotional Image`">
+        <div>{{score}} {{ranked}} {{popularity}} {{members}}</div>
+        <p style="white-space: pre;">{{synopsis}}</p>
+        <div>{{episodes}} {{season}} {{year}}</div>
+        <a :href="url">Link</a>
     </div>
     <script src="https://unpkg.com/vue@3    "></script>
     <script src='app.js'></script>
