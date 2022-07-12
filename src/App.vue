@@ -1,3 +1,44 @@
+<template>
+  <div id="header">
+      <div id="header-left-side">
+          <strong>{{title}}</strong>
+          <strong class="secondary-title">{{titleEnglish}}</strong>
+      </div>
+      <strong class="secondary-title">{{titleJapanese}}</strong>
+  </div>
+  <div id="content">
+      <div id="left-side">
+          <a :href="url">
+              <img :src="image" :alt="`${titleEnglish} Promotional Image`">
+          </a>
+          <button v-on:click="getData()">Get A New Random Anime</button>
+      </div>
+      <div id="top">    
+          <div id="info-div">
+              <div id="info-left-side">
+                  <span id="air-data">{{season}} {{year}}</span>
+                  <span id="episodes">{{episodes}} episodes - {{type}}</span>
+              </div>
+              <div id="score">
+                  <img id="score-icon" src="./assets/star.svg" alt="star">
+                  <span id="score-data">{{score}}</span>
+              </div>
+          </div>
+          <p id="synopsis">{{synopsis}}</p>
+      </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+  components: {
+    
+  }
+}
+</script>
+
+<style>
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -96,7 +137,6 @@ button {
     padding: 6px;
     width: 100%;
     text-decoration: none;
-
 }
 
 #top {
@@ -152,3 +192,4 @@ button {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+</style>
