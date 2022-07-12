@@ -2,17 +2,11 @@
   <Header :title="title" :titleEnglish="titleEnglish" :titleJapanese="titleJapanese"/>
   <div id="content">
     <div id="left-side">
-      <Image :animeURL="animeURL" :imageURL="imageURL" />
+      <Image :title="title" :animeURL="animeURL" :imageURL="imageURL" />
+      <Button/>
     </div>
   </div>
   <!-- 
-  <div id="content">
-      <div id="left-side">
-          <a :href="url">
-              <img :src="image" :alt="`${titleEnglish} Promotional Image`">
-          </a>
-          <button v-on:click="getData()">Get A New Random Anime</button>
-      </div>
       <div id="top">    
           <div id="info-div">
               <div id="info-left-side">
@@ -32,6 +26,25 @@
 <script>
 import Header from './components/Header.vue'
 import Image from './components/Image.vue'
+import Button from './components/Button.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Image,
+    Button
+  },
+  data() {
+    return {
+      title: title,
+      titleEnglish: titleEnglish,
+      titleJapanese: titleJapanese,
+      animeURL: animeURL,
+      imageURL: imageURL
+    }
+  }
+}
 
 const ID = 50265
 const animeURL = 'https://myanimelist.net/anime/50265/Spy_x_Family'
@@ -49,23 +62,6 @@ const episodes = 12
 const type = 'TV'
 const season = 'spring'
 const year = 2022
-
-export default {
-  name: 'App',
-  components: {
-    Header,
-    Image
-  },
-  data() {
-    return {
-      title: title,
-      titleEnglish: titleEnglish,
-      titleJapanese: titleJapanese,
-      animeURL: animeURL,
-      imageURL: imageURL
-    }
-  }
-}
 </script>
 
 <style>
