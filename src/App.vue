@@ -153,10 +153,10 @@ table {
 }
 
 #app {
-  width: 500px;
+  width: 920px;
   height: 500px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  margin-left: 500px;
 }
 
 #header {
@@ -200,6 +200,11 @@ button {
   padding: 6px;
   width: 100%;
   text-decoration: none;
+  transition: 0.25s;
+}
+
+button:hover {
+  background-color: #6f96f0;
 }
 
 #top {
@@ -207,10 +212,15 @@ button {
 }
 
 #info-div {
+  background-color: #f6f6f6;
+  border: #ebebeb 1px solid;
+  padding: 10px;
+  width: 100%;
   display: grid;
-  grid-template-columns: auto 70px;
+  grid-template-columns: auto 120px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 #info-left-side {
@@ -232,6 +242,7 @@ button {
 }
 
 #score {
+  padding-right: 20px;
   color: #323232;;
   padding-top: 0.75rem;
   text-align: right;
